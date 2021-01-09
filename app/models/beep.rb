@@ -1,0 +1,2 @@
+class Beep < ApplicationRecord
+end

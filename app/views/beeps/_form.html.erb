@@ -1,0 +1,27 @@
+<%= form_with(model: beep) do |form| %>
+  <% if beep.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(beep.errors.count, "error") %> prohibited this beep from being saved:</h2>
+
+      <ul>
+        <% beep.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @beep.text %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @beep.author %>
+</p>
+
+<%= link_to 'Edit', edit_beep_path(@beep) %> |
+<%= link_to 'Back', beeps_path %>
