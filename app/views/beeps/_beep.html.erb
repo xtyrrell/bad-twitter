@@ -1,4 +1,7 @@
-<div class="rounded shadow my-4 p-4">
-<p class="font-bold"><%= beep.text %></p>
-<p class=""> - <%= beep.author %></p>
+<div class="p-4 my-4 rounded shadow">
+  <p class="text-lg font-bold"><%= beep.text %></p>
+  <div class="flex items-end justify-between">
+  <p class="m-1"><%= beep.author != '' ? "@#{beep.author}" : 'anonymous' %></p>
+  <p class="float-right m-1 text-sm text-gray">⌚ Posted <%= time_ago_in_words beep.created_at %> ago</p>
+  </div>
 </div>

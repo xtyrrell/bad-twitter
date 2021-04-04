@@ -24,17 +24,19 @@ class BeepsController < ApplicationController
   # POST /beeps
   # POST /beeps.json
   def create
-    @beep = Beep.new(beep_params)
+    @beep = Beep.new(beep_params.except(:robot))
 
     respond_to do |format|
-      if @beep.save
-        format.html { redirect_to @beep, notice: 'Beep was successfully created.' }
-        format.json { render :show, status: :created, location: @beep }
-      else
-        format.html { render :new }
-        format.json { render json: @beep.errors, status: :unprocessable_entity }
+      # unless beep_params['robot']
+        if @beep.save
+          format.html { redirect_to @beep, notice: 'Beep was successfully created.' }
+          format.json { render :show, status: :created, location: @beep }
+        else
+          format.html { render :new }
+          format.json { render json: @beep.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    # end
   end
 
   # PATCH/PUT /beeps/1
@@ -69,6 +71,6 @@ class BeepsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def beep_params
-      params.require(:beep).permit(:text, :author)
+      params.require(:beep).permit(:text, :author, :robot)
     end
 end

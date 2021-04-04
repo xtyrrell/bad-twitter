@@ -1,0 +1,13 @@
+<h1>Welcome to the world's worst social media platform</h1>
+<p>If you're going to waste your time by spending it consuming garbage from the floor of the internet, we're not going to stop you!</p>
+
+<p>Here are the latest beeps:</p>
+
+<%= turbo_stream_from "beeps" %>
+<%= turbo_frame_tag "beeps", src: beeps_path do %>
+  <div>Loading beeps</div>
+<% end %>
+<hr />
+
+<p>Well, why don't you post one yourself?</p>
+<%= render "beeps/form" %>
